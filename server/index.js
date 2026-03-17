@@ -11,9 +11,14 @@ import paymentRouter from "./routes/payment.route.js"
 
 const app = express()
 app.use(cors({
-    origin:"https://prepai-d9v7.onrender.com",
-    credentials:true
-}))
+  origin: [
+    "http://localhost:5173",
+    "https://prepai-d9v7.onrender.com"
+  ],
+  credentials: true
+}));
+
+app.options("*", cors());
 
 app.use(express.json())
 app.use(cookieParser())
